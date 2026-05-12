@@ -24,7 +24,7 @@ Backend:
 
 # Project Structure
 
-\`\`\`
+```
 fullstack-app/
 │
 ├── backend/
@@ -37,7 +37,7 @@ fullstack-app/
 │
 ├── .gitignore
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -51,21 +51,21 @@ Install:
 
 Verify:
 
-\`\`\`bash
+```
 node -v
 npm -v
 git --version
-\`\`\`
+```
 
 ---
 
 # Clone Repository
 
-\`\`\`bash
+```
 git clone <YOUR_GIT_REPO_URL>
 
 cd fullstack-app
-\`\`\`
+```
 
 ---
 
@@ -73,33 +73,33 @@ cd fullstack-app
 
 Go to backend folder:
 
-\`\`\`bash
+```
 cd backend
-\`\`\`
+```
 
 Install dependencies:
 
-\`\`\`bash
+```
 npm install
-\`\`\`
+```
 
 Start backend server:
 
-\`\`\`bash
+```
 node server.js
-\`\`\`
+```
 
 Expected output:
 
-\`\`\`
+```
 Backend running on port 5000
-\`\`\`
+```
 
 Backend API:
 
-\`\`\`
+```
 http://localhost:5000/tasks
-\`\`\`
+```
 
 ---
 
@@ -109,39 +109,38 @@ Open NEW terminal.
 
 Go to frontend folder:
 
-\`\`\`bash
+```
 cd frontend
-\`\`\`
-
+```
 Install dependencies:
 
-\`\`\`bash
+```
 npm install
-\`\`\`
+```
 
 Start React frontend:
 
-\`\`\`bash
+```
 npm start
-\`\`\`
+```
 
 Frontend URL:
 
-\`\`\`
+```
 http://localhost:3000
-\`\`\`
+```
 
 ---
 
 # How Application Works
 
-\`\`\`
+```
 React Frontend
       ↓ API Calls
 Node.js Backend
       ↓
 In-Memory Data Storage
-\`\`\`
+```
 
 ---
 
@@ -160,17 +159,17 @@ In-Memory Data Storage
 
 Terminal 1:
 
-\`\`\`bash
+```
 cd backend
 node server.js
-\`\`\`
+```
 
 Terminal 2:
 
-\`\`\`bash
+```
 cd frontend
 npm start
-\`\`\`
+```
 
 ---
 
@@ -178,27 +177,27 @@ npm start
 
 ## Install Dependencies
 
-\`\`\`bash
+```
 npm install
-\`\`\`
+```
 
 ## Start Backend
 
-\`\`\`bash
+```
 node server.js
-\`\`\`
+```
 
 ## Start Frontend
 
-\`\`\`bash
+```
 npm start
-\`\`\`
+```
 
 ## React Production Build
 
-\`\`\`bash
+```
 npm run build
-\`\`\`
+```
 
 ---
 
@@ -206,9 +205,9 @@ npm run build
 
 React production artifact:
 
-\`\`\`
+```
 frontend/build/
-\`\`\`
+```
 
 Node.js backend is usually packaged using:
 
@@ -235,7 +234,7 @@ Enhancements:
 
 # Example DevOps Flow
 
-\`\`\`
+```
 Developer Push
       ↓
 CI/CD Pipeline
@@ -245,16 +244,15 @@ Docker Build
 Container Registry
       ↓
 Kubernetes Deployment
-\`\`\`
-
-EOF
 ```
+
+
 
 ---
 
 # Verify README
 
-```bash
+```
 cat README.md
 ```
 
@@ -262,7 +260,7 @@ cat README.md
 
 # Push to Git
 
-```bash
+```
 git add .
 
 git commit -m "Added README"
@@ -276,7 +274,7 @@ git push
 
 ## Backend
 
-```bash
+```
 cd backend
 
 npm install
@@ -288,7 +286,7 @@ node server.js
 
 ## Frontend
 
-```bash
+```
 cd frontend
 
 npm install
