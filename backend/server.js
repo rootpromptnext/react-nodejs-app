@@ -1,11 +1,10 @@
 const express = require('express')
 const cors = require('cors')
-const bodyParser = require('body-parser')
 
 const app = express()
 
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 
 let tasks = [
     {
@@ -15,21 +14,17 @@ let tasks = [
     }
 ]
 
-// Counter for proper incremental IDs
-let nextId = 2
-
-// Get All Tasks
 app.get('/tasks', (req, res) => {
-
     res.json(tasks)
 })
 
-// Create Task
 app.post('/tasks', (req, res) => {
 
     const task = {
 
-        id: nextId++,
+        id: tasks.length > 0
+            ? tasks[tasks.length - 1].id + 1
+            : 1,
 
         title: req.body.title,
 
@@ -41,7 +36,6 @@ app.post('/tasks', (req, res) => {
     res.json(task)
 })
 
-// Update Task
 app.put('/tasks/:id', (req, res) => {
 
     const id = parseInt(req.params.id)
@@ -51,11 +45,8 @@ app.put('/tasks/:id', (req, res) => {
         if (task.id === id) {
 
             return {
-
                 ...task,
-
                 title: req.body.title,
-
                 status: req.body.status
             }
         }
@@ -68,7 +59,6 @@ app.put('/tasks/:id', (req, res) => {
     })
 })
 
-// Delete Task
 app.delete('/tasks/:id', (req, res) => {
 
     const id = parseInt(req.params.id)
@@ -80,8 +70,6 @@ app.delete('/tasks/:id', (req, res) => {
     })
 })
 
-// Start Server
 app.listen(5000, '0.0.0.0', () => {
-
     console.log("Backend running on port 5000")
 })

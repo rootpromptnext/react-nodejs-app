@@ -7,12 +7,11 @@ node_modules/
 **/node_modules/
 
 # =========================
-# React / Node Build
+# Build Artifacts
 # =========================
 
 build/
 dist/
-coverage/
 
 # =========================
 # Environment Files
@@ -20,7 +19,6 @@ coverage/
 
 .env
 .env.*
-!.env.example
 
 # =========================
 # Logs
@@ -32,16 +30,22 @@ yarn-debug.log*
 yarn-error.log*
 
 # =========================
+# Coverage
+# =========================
+
+coverage/
+
+# =========================
+# IDE Files
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
 # OS Files
 # =========================
 
 .DS_Store
 Thumbs.db
-
-# =========================
-# IDE
-# =========================
-
-.vscode/
-.idea/
 

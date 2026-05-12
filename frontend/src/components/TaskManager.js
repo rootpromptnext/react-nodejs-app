@@ -12,7 +12,6 @@ function TaskManager() {
     const [editId, setEditId] = useState(null)
 
     const API = "http://192.168.1.21:5000/tasks"
-
     useEffect(() => {
         fetchTasks()
     }, [])
@@ -67,140 +66,123 @@ function TaskManager() {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container">
 
-            <div className="card shadow-lg border-0">
+            <div className="card">
 
-                <div className="card-header bg-dark text-white">
-                    <h2 className="text-center">
-                        Task Manager
-                    </h2>
+                <div className="heading">
+                    Modern Task Manager
                 </div>
 
-                <div className="card-body">
+                <form onSubmit={handleSubmit}>
 
-                    <form onSubmit={handleSubmit}>
+                    <div className="form-row">
 
-                        <div className="row">
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Enter Task"
+                            value={title}
+                            onChange={(e) =>
+                                setTitle(e.target.value)
+                            }
+                            required
+                        />
 
-                            <div className="col-md-5 mb-3">
+                        <select
+                            className="select"
+                            value={status}
+                            onChange={(e) =>
+                                setStatus(e.target.value)
+                            }
+                        >
 
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Enter Task"
-                                    value={title}
-                                    onChange={(e) =>
-                                        setTitle(e.target.value)
-                                    }
-                                    required
-                                />
-                            </div>
+                            <option>Pending</option>
+                            <option>Completed</option>
 
-                            <div className="col-md-3 mb-3">
+                        </select>
 
-                                <select
-                                    className="form-select"
-                                    value={status}
-                                    onChange={(e) =>
-                                        setStatus(e.target.value)
-                                    }
-                                >
-
-                                    <option>Pending</option>
-                                    <option>Completed</option>
-
-                                </select>
-                            </div>
-
-                            <div className="col-md-4 mb-3">
-
-                                <button
-                                    className="btn btn-primary w-100"
-                                >
-
-                                    {
-                                        editId
-                                        ? "Update Task"
-                                        : "Add Task"
-                                    }
-
-                                </button>
-                            </div>
-
-                        </div>
-
-                    </form>
-
-                    <table className="table table-hover mt-4">
-
-                        <thead className="table-dark">
-
-                            <tr>
-                                <th>ID</th>
-                                <th>Task</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
+                        <button className="button">
 
                             {
-                                tasks.map(task => (
-
-                                    <tr key={task.id}>
-
-                                        <td>{task.id}</td>
-
-                                        <td>{task.title}</td>
-
-                                        <td>
-
-                                            <span className={
-                                                task.status === "Completed"
-                                                ? "badge bg-success"
-                                                : "badge bg-warning text-dark"
-                                            }>
-
-                                                {task.status}
-
-                                            </span>
-
-                                        </td>
-
-                                        <td>
-
-                                            <button
-                                                className="btn btn-sm btn-info me-2"
-                                                onClick={() =>
-                                                    handleEdit(task)
-                                                }
-                                            >
-                                                Edit
-                                            </button>
-
-                                            <button
-                                                className="btn btn-sm btn-danger"
-                                                onClick={() =>
-                                                    handleDelete(task.id)
-                                                }
-                                            >
-                                                Delete
-                                            </button>
-
-                                        </td>
-
-                                    </tr>
-                                ))
+                                editId
+                                ? "Update"
+                                : "Add"
                             }
 
-                        </tbody>
+                        </button>
 
-                    </table>
+                    </div>
 
-                </div>
+                </form>
+
+                <table className="table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Task</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {
+                            tasks.map(task => (
+
+                                <tr key={task.id}>
+
+                                    <td>{task.id}</td>
+
+                                    <td>{task.title}</td>
+
+                                    <td>
+
+                                        <span className={
+                                            task.status === "Completed"
+                                            ? "badge completed"
+                                            : "badge pending"
+                                        }>
+
+                                            {task.status}
+
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+
+                                        <button
+                                            className="action-btn edit-btn"
+                                            onClick={() =>
+                                                handleEdit(task)
+                                            }
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            className="action-btn delete-btn"
+                                            onClick={() =>
+                                                handleDelete(task.id)
+                                            }
+                                        >
+                                            Delete
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                            ))
+                        }
+
+                    </tbody>
+
+                </table>
 
             </div>
 
