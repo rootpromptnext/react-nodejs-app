@@ -1,6 +1,6 @@
-# Modern Full Stack React + Node.js CRUD App
+# Full Stack React + Node.js CRUD App
 
-Modern CRUD application using:
+CRUD application using:
 
 - React
 - Modern UI
@@ -12,7 +12,7 @@ Modern CRUD application using:
 # Project Structure
 
 ```
-modern-fullstack-app/
+react-nodejs-app
 ├── backend/
 ├── frontend/
 ├── .gitignore
@@ -39,8 +39,7 @@ git --version
 
 ```
 git clone <YOUR_GIT_REPO_URL>
-
-cd modern-fullstack-app
+cd react-nodejs-app
 ```
 
 # Run Backend
@@ -51,7 +50,6 @@ Open terminal 1:
 cd backend
 
 npm install
-
 node server.js
 ```
 
@@ -73,9 +71,7 @@ Open terminal 2:
 
 ```
 cd frontend
-
 npm install
-
 npm start
 ```
 
